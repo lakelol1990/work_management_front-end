@@ -1,4 +1,4 @@
-# Work Management Frontend
+# 勤怠管理システム (Work Management System)
 
 社内勤怠管理システムのフロントエンドプロジェクトです。
 React + TypeScript ベースの SPA として開発し、Spring Boot の REST API と連携して出退勤管理およびお知らせ機能を提供します。
