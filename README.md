@@ -1,73 +1,97 @@
-# React + TypeScript + Vite
+# Work Management Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+社内勤怠管理システムのフロントエンドプロジェクトです。
+React + TypeScript ベースの SPA として開発し、Spring Boot の REST API と連携して出退勤管理およびお知らせ機能を提供します。
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 プロジェクト概要
 
-## React Compiler
+社員の出退勤記録管理とお知らせ確認のための Web サービスです。
+認証ベースのアクセス制御を適用し、ログインユーザーのみシステム機能を利用できます。
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠 技術スタック
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Frontend
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* React
+* TypeScript
+* Vite
+* Axios
+* React Router
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### State & Auth
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+* カスタム認証ストア（ログイン状態管理）
+* Private Route（認証ルーティング）
+
+### Development Tool
+
+* ESLint
+* npm
+
+---
+
+## ✨ 主な機能
+
+### 🔐 認証
+
+* ログイン / 新規登録
+* 認証ユーザーのみアクセス可能なルーティング制御
+
+### 🕒 勤怠管理
+
+* 出勤登録
+* 退勤登録
+* 勤怠履歴の確認
+
+### 📢 お知らせ
+
+* お知らせ一覧表示
+* お知らせ詳細表示
+
+---
+
+## 📂 プロジェクト構造
+
+```
+src
+ ├─ api            # サーバー通信モジュール
+ ├─ layout         # 共通レイアウト
+ ├─ pages          # 画面ページ
+ ├─ routers        # ルーティングおよび認証処理
+ ├─ store          # グローバル状態管理
+ └─ main.tsx       # アプリ開始ポイント
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 実行方法
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+# パッケージインストール
+npm install
+
+# 開発サーバー起動
+npm run dev
 ```
+
+ブラウザアクセス
+
+```
+http://localhost:5173
+```
+
+---
+
+## 🔗 Backend Repository
+
+Spring Boot ベースの REST API サーバーと連携します。
+
+---
+
+## 👩‍💻 開発者
+
+個人プロジェクト
